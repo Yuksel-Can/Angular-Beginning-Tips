@@ -1,9 +1,18 @@
 <p>
     Müşteri : {{kullanici}}
 </p>
-
 <ul>
-    <li *ngFor="let customer of customers">
-        {{customer.firstName}}
-    </li>
+    <div *ngFor="let customer of customers" (click)="selectCustomer(customer)">
+        <li *ngIf="customer.age>22 ">
+            {{customer.firstName}}
+        </li>
+    </div>
 </ul>
+
+<strong *ngIf="selectedCustomer; else bisey">{{selectedCustomer.firstName}} seçtiniz !</strong>
+
+<ng-template #bisey>
+    Birşey seçilmedi !
+</ng-template>
+
+<h1>Current city is {{city2}}</h1>
